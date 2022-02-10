@@ -24,7 +24,7 @@ function Board(game) {
                             game.selectCard(game.cards[j]);
                         }
                     },
-                    z.Img['h-full rounded-md max-h-full max-w-none bg-white']({
+                    z.Img['h-full rounded-md max-h-full max-w-none bg-white select-none pointer-events-none']({
                         src: game.cards[j],
                         onload(e) {
                             const image = e.target;
@@ -106,10 +106,10 @@ function endGame(game, p) {
 
 export function getData() {
     return Promise.all([
-        fetch('/memes')
+        fetch('./memes')
             .then(res => res.text())
             .then(text => text.split('\n')),
-        fetch('/quests')
+        fetch('./quests')
             .then(res => res.text())
             .then(text => text.split('\n'))
     ]);
